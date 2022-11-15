@@ -14,18 +14,20 @@ include 'config.php'; ?>
 </head>
 
 <body>
-    <?php
+<?php
     $id = $_SESSION['id'] = $_GET['id'];
     $sql1 = 'SELECT p.* , c.nom as cat 
  FROM produit p
  JOIN categorie c
   ON p.id_cat = c.id
- where p.id = ?';
+ where p.id = ' .$_GET['id'];
 
     // $sql1 = "SELECT * FROM `produit` `nom`  WHERE `produit`.`id`=$id";
     $resultat1 = $connect->prepare($sql1);
-    $resultat1->execute([$id]);
-    $raw1 = $resultat1->fetchAll(); ?>
+    $resultat1->execute();
+    $raw1 = $resultat1->fetchAll(); 
+    ?>
+   
     
 
     <div class="form-body">

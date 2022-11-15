@@ -218,8 +218,6 @@
                         $id = $key['id'];
                     ?>
                         <div class="card" style="width: 18rem; align-items: center;">
-
-
                             <img src="<?php echo $key['image'] ?>" class="card-img-top" alt="error a boQal" style="width: 17rem;">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $key['nom'] ?></h5>
@@ -234,8 +232,6 @@
                             </div>
                         </div>
                     <?php } ?>
-
-
                 </div>
                 <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px; margin-bottom: 20px;">See More</button>
         </section>

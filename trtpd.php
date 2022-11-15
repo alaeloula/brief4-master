@@ -6,7 +6,7 @@ $cat = $_POST['cat'];
 $prix = $_POST['prix'];
 $qte = $_POST['qte'];
 $des= $_POST['description'];
-$target_dir = $_SERVER['DOCUMENT_ROOT'] ."/gm2/uploads/";
+$target_dir = $_SERVER['DOCUMENT_ROOT'] ."/brief4-master/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -50,6 +50,7 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
     $image= "uploads/".$_FILES["fileToUpload"]["name"];
+    echo $image;
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
@@ -60,12 +61,12 @@ if ($uploadOk == 0) {
 $sql = "INSERT INTO `produit` (`id`, `nom`, `qte`, `prix`, `image`, `description` ,`id_cat`) VALUES (NULL, '$name', '$qte', '$prix', '$image','$des', '$cat');";
 $resultat = $connect->prepare($sql);
 $resultat->execute() or die("Erreur lors de l'execution de la requete: ".mysql_error());
-echo "bien insere";
+// echo "bien insere";
 // ******************************
 
 
 
-echo "hadii khdamaaaach";
+// echo "hadii khdamaaaach";
 //  $sql = "INSERT IGNORE INTO `produit` (`nom`, `qte`, `prix`, `id_cat`) VALUES ('?', '?', '?', '?')";
 //  $resultat = $connect->prepare($sql);
 //  $resultat->execute([$name,$qte,$prix,$cat]) or die("Erreur lors de l'execution de la requete: ".mysql_error());
