@@ -9,17 +9,23 @@ $password = $_POST['password'];
 
 $sql = "SELECT * FROM client WHERE username='$username'  And password='$password'";
 $resultat = $connect->prepare($sql);
-$resultat->execute() or die("Erreur lors de l'execution de la requete: ".mysql_error());
+$resultat->execute();
+// or die("Erreur lors de l'execution de la requete: ".mysql_error());
 
 	if($resultat->rowCount())
 	{
       $_SESSION['login'] = true;
-      header("Location: ./index.php");
-			exit();
+    //   header("Location: ./index.php");
+	// 		exit();
+	echo 1;
 
 	} else {
-		header("Location: ./login.php");
-		exit();
+		// echo "<script>
+		// 	alert('error')
+		// </script>";
+		// header("Location: ./login.php");
+		// exit();
+		echo 2;
 
 
 	}
