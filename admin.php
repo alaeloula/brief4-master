@@ -217,7 +217,7 @@
                     foreach ($raw1 as $key) {
                         $id = $key['id'];
                     ?>
-                        <div class="card" style="width: 18rem; align-items: center;">
+                        <div class="card" style="width: 18rem; ">
                             <img src="<?php echo $key['image'] ?>" class="card-img-top" alt="error a boQal" style="width: 17rem;">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $key['nom'] ?></h5>
@@ -225,7 +225,7 @@
                                 <p> <span class="prixQu" style="margin-right: 70%; font-weight: 800;"> <?php echo $key['prix'] ?> <span style="color: orange;">$</span></span> <span style="font-weight: 800;"> x<?php echo $key['qte'] ?> </span></p>
                                 <div class="gaping text-start" style="display: flex; justify-content: space-between;">
                                     <?php echo "<a class='btn btn-outline-success' href='modifierpd.php?id=$id'>Edit</a>" ?>
-                                    <?php echo "<a class='btn btn-outline-success' href='deletepd.php?id=$id'>Delete</a>" ?>
+                                    <?php echo "<a class='btn btn-outline-danger' href='deletepd.php?id=$id'>Delete</a>" ?>
                                     <!-- <a href="#" class="btn btn-outline-success">Edit</a>
                                 <a href="#" class="btn btn-outline-danger">Delete</a> -->
                                 </div>

@@ -1,4 +1,45 @@
-<?php include 'config.php'; ?>
+<?php include 'config.php';
+function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
+{
+    return "<div class='card' style='width: 18rem;'>
+        <img src='$img' class='card-img-top' alt='...'>
+        <div class='card-body'>
+            <h5 class='card-title'>$nom</h5>
+            <p class='card-text'>$desc</p>
+            <p> <span class='prixQu' style='margin-right: 70%; font-weight: 800;'> $prix <span style='color: orange;'>$</span></span> <span style='font-weight: 800;'> x$qtty </span></p>
+            <div class='gaping text-start' style='display: flex; justify-content: space-between;'>
+                <a href='$id' class='btn btn-outline-light'>Purchase</a>
+                <a href='$id' class='btn btn-outline-light'>Add to cart</a>
+            </div>
+        </div>
+    </div>";
+
+
+
+
+
+
+
+    return "
+        <div class='card' style='width: 18rem; align-items: center;'>
+            <img src=' $img ' class=' card-img-top' alt='error a boQal' style='width: 17rem;'>
+            <div class='card-body'>
+                <h5 class='card-title'> $nom </h5>
+                <p class='card-text'> $desc </p>
+                <p> <span class='prixQu' style='margin-right: 70%; font-weight: 800;'> $prix <span style='color: orange;'>$</span></span> <span style='font-weight: 800;'> x $qtty </span></p>
+                <div class='gaping text-start' style='display: flex; justify-content: space-between;'>
+                    '<a class='btn btn-outline-success' href='modifierpd.php?id=$id'>Edit</a>'
+                    '<a class='btn btn-outline-danger' href='deletepd.php?id=$id'>Delete</a>'
+        
+                </div>
+            </div>
+        </div>
+        ";
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +55,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- css -->
-    <link rel="stylesheet" href="style.Css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <!-- js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -72,7 +113,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">All Categories</a></li> 
+                                <li><a class="dropdown-item" href="#">All Categories</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -106,6 +147,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="card" style="width: 18rem; align-items: center;">
                         <img src="images/abhipsa-pal-ILra9AOaXOE-unsplash-removebg-preview.png" class="card-img-top" alt="..." style="width: 17rem;">
                         <div class="card-body">
@@ -255,7 +297,7 @@
             </div>
             <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px;">See More</button>
         </section> -->
-        <section class="Products" id="Products">
+        <section class="trending" id="Products">
             <h1>Products</h1>
             <div class="cadre">
                 <div class="allcards">
@@ -266,22 +308,10 @@
                     $raw1 = $resultat1->fetchAll();
                     foreach ($raw1 as $key) {
                         $id = $key['id'];
+                        echo prod_temp($key['id'], $key['nom'], $key['description'], $key['qte'], $key['prix'], $key['image']);
+                    }
                     ?>
-                        <div class="card" style="width: 18rem; align-items: center;">
-                            <img src="<?php echo $key['image'] ?>" class="card-img-top" alt="error a boQal" style="width: 17rem;">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php echo $key['nom'] ?></h5>
-                                <p class="card-text"><?php echo $key['description'] ?></p>
-                                <p> <span class="prixQu" style="margin-right: 70%; font-weight: 800;"> <?php echo $key['prix'] ?> <span style="color: orange;">$</span></span> <span style="font-weight: 800;"> x<?php echo $key['qte'] ?> </span></p>
-                                <div class="gaping text-start" style="display: flex; justify-content: space-between;">
-                                    <?php echo "<a class='btn btn-outline-success' href='modifierpd.php?id=$id'>Edit</a>" ?>
-                                    <?php echo "<a class='btn btn-outline-success' href='deletepd.php?id=$id'>Delete</a>" ?>
-                                    <!-- <a href="#" class="btn btn-outline-success">Edit</a>
-                                <a href="#" class="btn btn-outline-danger">Delete</a> -->
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
+
                 </div>
                 <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px; margin-bottom: 20px;">See More</button>
         </section>

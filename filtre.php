@@ -106,8 +106,8 @@
                     foreach ($raw1 as $key) {
                         $id = $key['id'];
                     ?>
-                        <div class="card" style="width: 18rem; align-items: center;">
-                            <img src="<?php echo $key['image'] ?>" class="card-img-top" alt="error a boQal" style="width: 17rem;">
+                        <div class="card" style="width: 18rem;">
+                            <img src="<?php echo $key['image'] ?>" class="card-img-top" alt="error a boQal" >
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $key['nom'] ?></h5>
                                 <p class="card-text"><?php echo $key['description'] ?></p>
