@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categorie` (
   `id` int NOT NULL,
   `nom` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Déchargement des données de la table `categorie`
@@ -54,7 +54,7 @@ CREATE TABLE `client` (
   `password` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
   `etat` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Déchargement des données de la table `client`
@@ -75,7 +75,7 @@ CREATE TABLE `operation` (
   `qte` int NOT NULL,
   `id_cl` int NOT NULL,
   `id_p` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -89,9 +89,9 @@ CREATE TABLE `produit` (
   `qte` int NOT NULL,
   `prix` float NOT NULL,
   `image` varchar(80) NOT NULL,
-  `description` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `description` varchar(200) ,
   `id_cat` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Déchargement des données de la table `produit`
