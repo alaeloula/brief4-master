@@ -1,4 +1,6 @@
-<?php include 'config.php'; ?>
+<?php 
+session_start();
+include 'config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +28,12 @@
 </head>
 
 <body>
+    <?php 
+    if(isset($_SESSION['modifierpd'])){
+        echo $_SESSION['modifierpd'];
+        $_SESSION['modifierpd']="";
+    }
+    ?>
     <div class="backg cen">
         <!-- Barre de navigation -->
         <nav class="navbar navbar-expand-lg bg-dark" style="position: fixed; width:100%; z-index: 2;">

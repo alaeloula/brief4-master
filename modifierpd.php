@@ -40,7 +40,7 @@ include 'config.php'; ?>
                         <form class="requires-validation" action="trtmodifierpd.php" method="post" enctype="multipart/form-data" novalidate>
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="name" value="<?php echo $raw1[0]['nom'] ?>">
+                                <input class="form-control" type="text" name="name" value="<?php echo $raw1[0]['nom'] ?> " required>
                             </div>
                             <div class="col-md-12 mt-3">
                                 <input type="file" name="fileToUpload" class="form-control" id="fileToUpload" value="<?php echo $raw1[0]['image'] ?> ">
