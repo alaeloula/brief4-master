@@ -1,4 +1,20 @@
-<?php include 'config.php'; ?>
+<?php include 'config.php'; 
+
+function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
+{
+    return "<div class='card' style='width: 18rem;'>
+        <img src='$img' class='card-img-top' alt='...'>
+        <div class='card-body'>
+            <h5 class='card-title'>$nom</h5>
+            <p class='card-text'>$desc</p>
+            <p> <span class='prixQu' style='margin-right: 70%; font-weight: 800;'> $prix <span style='color: orange;'>$</span></span> <span style='font-weight: 800;'> x$qtty </span></p>
+            <div class='gaping text-start' style='display: flex; justify-content: space-between;'>
+                <a href='' class='btn btn-outline-light'>Purchase</a>
+                <a href='' class='btn btn-outline-light'>Add to cart</a>
+            </div>
+        </div>
+    </div>";}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,24 +119,14 @@
                     $resultat1 = $connect->prepare($sql1);
                     $resultat1->execute();
                     $raw1 = $resultat1->fetchAll();
-                    foreach ($raw1 as $key) {
+                    
+                    
+                         foreach ($raw1 as $key) {
                         $id = $key['id'];
+                        echo prod_temp($key['id'], $key['nom'], $key['description'], $key['qte'], $key['prix'], $key['image']);
+                    }
                     ?>
-                        <div class="card" style="width: 18rem;">
-                            <img src="<?php echo $key['image'] ?>" class="card-img-top" alt="error a boQal" >
-                            <div class="card-body">
-                                <h5 class="card-title"><?php echo $key['nom'] ?></h5>
-                                <p class="card-text"><?php echo $key['description'] ?></p>
-                                <p> <span class="prixQu" style="margin-right: 70%; font-weight: 800;"> <?php echo $key['prix'] ?> <span style="color: orange;">$</span></span> <span style="font-weight: 800;"> x<?php echo $key['qte'] ?> </span></p>
-                                <div class="gaping text-start" style="display: flex; justify-content: space-between;">
-                                    <?php echo "<a class='btn btn-outline-success' href='modifierpd.php?id=$id'>Edit</a>" ?>
-                                    <?php echo "<a class='btn btn-outline-success' href='deletepd.php?id=$id'>Delete</a>" ?>
-                                    <!-- <a href="#" class="btn btn-outline-success">Edit</a>
-                                <a href="#" class="btn btn-outline-danger">Delete</a> -->
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
+                   
                 </div>
                 <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px; margin-bottom: 20px;">See More</button>
         </section>

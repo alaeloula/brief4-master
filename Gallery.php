@@ -1,4 +1,10 @@
-<?php include 'config.php';
+<?php 
+session_start();
+if (!$_SESSION['login']) {
+    header("Location: ./login.php");
+    exit();
+}
+include 'config.php';
 function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
 {
     return "<div class='card' style='width: 18rem;'>

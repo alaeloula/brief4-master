@@ -16,12 +16,9 @@
 .operation{
     margin-top: 20px;
     padding: 20px;
-    height: 40vh;
+
     width: 80%;
     border-radius: 20px;
     background-color: white;
     display: none;
-}
-.op1{
-    height: 50vh;
 }

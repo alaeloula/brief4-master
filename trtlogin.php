@@ -15,17 +15,17 @@ $resultat->execute();
 	if($resultat->rowCount())
 	{
       $_SESSION['login'] = true;
-    //   header("Location: ./index.php");
-	// 		exit();
-	echo 1;
+      header("Location: ./index.php");
+			exit();
+	// echo 1;
 
 	} else {
 		// echo "<script>
 		// 	alert('error')
 		// </script>";
-		// header("Location: ./login.php");
-		// exit();
-		echo 2;
+		header("Location: ./login.php");
+		exit();
+		// echo 2;
 
 
 	}

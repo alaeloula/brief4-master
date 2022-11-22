@@ -23,6 +23,7 @@
 <body>
     
         <!-- Barre de navigation -->
+        
         <nav class="navbar navbar-expand-lg bg-dark" style="position: fixed; width:100%; z-index: 2;">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

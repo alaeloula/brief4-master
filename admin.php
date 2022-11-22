@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if (!$_SESSION['login']) {
+    header("Location: ./login.php");
+    exit();
+}
 include 'config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,15 +32,12 @@ include 'config.php'; ?>
 </head>
 
 <body>
-    <?php 
-    if(isset($_SESSION['modifierpd'])){
-        echo $_SESSION['modifierpd'];
-        $_SESSION['modifierpd']="";
-    }
-    ?>
+    <span></span>
+    
     <div class="backg cen">
         <!-- Barre de navigation -->
-        <nav class="navbar navbar-expand-lg bg-dark" style="position: fixed; width:100%; z-index: 2;">
+        <!-- style="position: fixed; width:100%; z-index: 2;" -->
+        <nav class="navbar navbar-expand-lg bg-dark fixed-top" >
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -86,6 +87,43 @@ include 'config.php'; ?>
         </nav>
         <!-- Fin de barre de navigation -->
         <span>.</span>
+        <br><br>
+        <?php 
+    if(isset($_SESSION['modifierpd'])){
+        echo $_SESSION['modifierpd'];
+        $_SESSION['modifierpd']="";
+    }
+    ?>
+    <?php 
+    if(isset($_SESSION['modifiercat'])){
+        echo $_SESSION['modifiercat'];
+        $_SESSION['modifiercat']="";
+    }
+    ?>
+    <?php 
+    if(isset($_SESSION['deletepd'])){
+        echo $_SESSION['deletepd'];
+        $_SESSION['deletepd']="";
+    }
+    ?>
+    <?php 
+    if(isset($_SESSION['deletecat'])){
+        echo $_SESSION['deletecat'];
+        $_SESSION['deletecat']="";
+    }
+    ?>
+    <?php 
+    if(isset($_SESSION['ajouterpd'])){
+        echo $_SESSION['ajouterpd'];
+        $_SESSION['ajouterpd']="";
+    }
+    ?>
+    <?php 
+    if(isset($_SESSION['ajoutercat'])){
+        echo $_SESSION['ajoutercat'];
+        $_SESSION['ajoutercat']="";
+    }
+    ?>
         <div class="Buttons">
             <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px;" onclick="ajoutP()">Add Product</button>
             <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px;" onclick="ajoutC()">Add Category</button>
@@ -215,7 +253,7 @@ include 'config.php'; ?>
         <!-- Products -->
         <section class="Products" id="Products">
             <h1>Products</h1>
-            <div class="cadre">
+            <div class="cadre text-center">
                 <div class="allcards">
                     <?php
                     $sql1 = "SELECT * FROM `produit`";
@@ -241,13 +279,14 @@ include 'config.php'; ?>
                         </div>
                     <?php } ?>
                 </div>
-                <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px; margin-bottom: 20px;">See More</button>
+                <!-- <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px; margin-bottom: 20px;">See More</button> -->
         </section>
 
         <!-- End of products -->
 
-
+    
     </div>
+    
 
     <script>
         function ajoutC() {

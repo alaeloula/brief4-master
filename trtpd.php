@@ -61,6 +61,8 @@ if ($uploadOk == 0) {
 $sql = "INSERT INTO `produit` (`id`, `nom`, `qte`, `prix`, `image`, `description` ,`id_cat`) VALUES (NULL, '$name', '$qte', '$prix', '$image','$des', '$cat');";
 $resultat = $connect->prepare($sql);
 $resultat->execute() or die("Erreur lors de l'execution de la requete: ".mysql_error());
+$_SESSION['ajouterpd'] = "<div class='alert alert-success' role='alert'>
+  A bien ete modifier</div>";
 // echo "bien insere";
 // ******************************
 
