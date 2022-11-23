@@ -26,6 +26,7 @@ include 'config.php'; ?>
     $resultat1 = $connect->prepare($sql1);
     $resultat1->execute();
     $raw1 = $resultat1->fetchAll(); 
+   
     ?>
    
     
@@ -37,26 +38,27 @@ include 'config.php'; ?>
                     <div class="form-items">
                         <h3>update the product</h3>
                         <p>Fill in the data below.</p>
-                        <form class="requires-validation" action="trtmodifierpd.php" method="post" enctype="multipart/form-data" novalidate>
+                        <form class="requires-validation" action="trtmodifierpd.php" method="post" enctype="multipart/form-data">
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="name" value="<?php echo $raw1[0]['nom'] ?> " required>
+                                <input class="form-control" type="text" name="name" value="<?= $raw1[0]['nom'] ?> " required>
                             </div>
                             <div class="col-md-12 mt-3">
                                 <input type="file" name="fileToUpload" class="form-control" id="fileToUpload" value="<?php echo $raw1[0]['image'] ?> ">
                             </div>
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="qte" value="<?php echo $raw1[0]['qte'] ?>">
+                                <input class="form-control" type="text" name="qte" value="<?php echo $raw1[0]['qte'] ?>" required>
                             </div>
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="prix" value="<?php echo $raw1[0]['prix'] ?>">
+                                <input class="form-control" type="text" name="prix" value="<?php echo $raw1[0]['prix'] ?>" required>
                             </div>
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="des" value="<?php echo $raw1[0]['description'] ?>">
+                                <input class="form-control" type="text" name="des" value="<?php echo $raw1[0]['description'] ?>"required>
                             </div>
                             <?php
                             $sql = "SELECT * FROM `categorie` ";
+                            // $resultat=$connect->query($sql);
                             $resultat = $connect->prepare($sql);
                             $resultat->execute();
                             $raw = $resultat->fetchAll();

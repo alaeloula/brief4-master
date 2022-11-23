@@ -78,13 +78,8 @@ function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
                                 foreach ($raw as $key) {
                                     $id = $key['id'];
                                 ?>
-                                    <!-- echo "<li value=" . $key['id'] . ">" . $key['nom'] . "</li>"; -->
                                     <li><a class="dropdown-item" href="filtre.php?id=<?php echo $id ?>"><?php echo $key['nom'] ?></a></li>
                                 <?php } ?>
-                                <!-- <li><a class="dropdown-item" href="#">Phone</a></li>
-                                <li><a class="dropdown-item" href="#">Console</a></li>
-                                <li><a class="dropdown-item" href="#">Laptop</a></li>
-                                <li><a class="dropdown-item" href="#">PC</a></li>-->
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li> 
@@ -128,7 +123,7 @@ function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
                     ?>
                    
                 </div>
-                <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px; margin-bottom: 20px;">See More</button>
+               
         </section>
         <!-- End of products -->
 

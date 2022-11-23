@@ -14,33 +14,11 @@ function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
             <p class='card-text'>$desc</p>
             <p> <span class='prixQu' style='margin-right: 70%; font-weight: 800;'> $prix <span style='color: orange;'>$</span></span> <span style='font-weight: 800;'> x$qtty </span></p>
             <div class='gaping text-start' style='display: flex; justify-content: space-between;'>
-                <a href='$id' class='btn btn-outline-light'>Purchase</a>
-                <a href='$id' class='btn btn-outline-light'>Add to cart</a>
+                <a href='#' class='btn btn-outline-light'>Purchase</a>
+                <a href='#' class='btn btn-outline-light'>Add to cart</a>
             </div>
         </div>
     </div>";
-
-
-
-
-
-
-
-    return "
-        <div class='card' style='width: 18rem; align-items: center;'>
-            <img src=' $img ' class=' card-img-top' alt='error a boQal' style='width: 17rem;'>
-            <div class='card-body'>
-                <h5 class='card-title'> $nom </h5>
-                <p class='card-text'> $desc </p>
-                <p> <span class='prixQu' style='margin-right: 70%; font-weight: 800;'> $prix <span style='color: orange;'>$</span></span> <span style='font-weight: 800;'> x $qtty </span></p>
-                <div class='gaping text-start' style='display: flex; justify-content: space-between;'>
-                    '<a class='btn btn-outline-success' href='modifierpd.php?id=$id'>Edit</a>'
-                    '<a class='btn btn-outline-danger' href='deletepd.php?id=$id'>Delete</a>'
-        
-                </div>
-            </div>
-        </div>
-        ";
 }
 
 
@@ -90,7 +68,7 @@ function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
                             <a class="nav-link" href="admin.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -101,16 +79,16 @@ function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
                             $sql = "SELECT * FROM `categorie` ";
                             $resultat = $connect->prepare($sql);
                             $resultat->execute();
-                            $raw = $resultat->fetchAll();
+                            $row = $resultat->fetchAll();
 
                             ?>
                             <ul class="dropdown-menu">
                                 <?php
-                                foreach ($raw as $key) {
+                                foreach ($row as $key) {
                                     $id = $key['id'];
                                 ?>
                                     <!-- echo "<li value=" . $key['id'] . ">" . $key['nom'] . "</li>"; -->
-                                    <li><a class="dropdown-item" href="filtre.php?id=<?php echo $id ?>"><?php echo $key['nom'] ?></a></li>
+                                    <li><a class="dropdown-item" href="filtre.php?id=<?= $id ?>"><?= $key['nom'] ?></a></li>
                                 <?php } ?>
                                 <!-- <li><a class="dropdown-item" href="#">Phone</a></li>
                                 <li><a class="dropdown-item" href="#">Console</a></li>
@@ -130,7 +108,7 @@ function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
                         <button class="btn btn-outline-light" type="submit">Search</button>
                     </form>
                     <div class="text-end ">
-                        <a class="nav-link deco" href="#" style="margin-left: 30px;">Deconnexion</a>
+                        <a class="nav-link deco" href="deconnexion.php" style="margin-left: 30px;">Deconnexion</a>
                     </div>
                 </div>
             </div>
@@ -305,21 +283,21 @@ function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
         </section> -->
         <section class="trending" id="Products">
             <h1>Products</h1>
-            <div class="cadre">
+            <div class="cadre text-center">
                 <div class="allcards">
                     <?php
                     $sql1 = "SELECT * FROM `produit`";
                     $resultat1 = $connect->prepare($sql1);
                     $resultat1->execute();
-                    $raw1 = $resultat1->fetchAll();
-                    foreach ($raw1 as $key) {
+                    $row1 = $resultat1->fetchAll();
+                    foreach ($row1 as $key) {
                         $id = $key['id'];
                         echo prod_temp($key['id'], $key['nom'], $key['description'], $key['qte'], $key['prix'], $key['image']);
                     }
                     ?>
 
                 </div>
-                <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px; margin-bottom: 20px;">See More</button>
+                <!-- <button class="btn btn-outline-light" type="submit" style="width: 150px; height: 50px; margin-bottom: 20px;">See More</button> -->
         </section>
         <!-- End of products -->
 

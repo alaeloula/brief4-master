@@ -6,6 +6,6 @@ $sql= "DELETE FROM `categorie` WHERE `categorie`.`id` = :id";
 $req=$connect->prepare($sql);
 $req->execute(['id'=> $id]);
 $_SESSION['deletecat'] = "<div class='alert alert-danger' role='alert'>
-  A bien ete modifier</div>";
+  A bien ete supprimer</div>";
 header("Location: admin.php");
 ?>

@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +24,12 @@
 </head>
 
 <body>
+<?php 
+    if(isset($_SESSION['errorcnx'])){
+        echo $_SESSION['errorcnx'];
+        $_SESSION['errorcnx']="";
+    }
+    ?>
   <section class="h-100 gradient-form" style="background-color: #eee;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -33,7 +40,6 @@
                 <div class="card-body p-md-5 mx-md-4">
 
                   <div class="text-center">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
                     <h4 class="mt-1 mb-5 pb-1">Vigors</h4>
                   </div>
 
@@ -53,7 +59,7 @@
                     <div class="text-center pt-1 mb-5 pb-1">
                       <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" style="width: 300px; height: 40px;">Log
                         in</button>
-                      <a class="text-muted" href="#!">Forgot password?</a>
+                      
                     </div>
 
 

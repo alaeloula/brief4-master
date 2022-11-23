@@ -37,10 +37,10 @@ if (!empty($_FILES["fileToUpload"]["full_path"])) {
   // }
 
   // Check file size
-  if ($_FILES["fileToUpload"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-  }
+  // if ($_FILES["fileToUpload"]["size"] > 500000) {
+  //   echo "Sorry, your file is too large.";
+  //   $uploadOk = 0;
+  // }
 
   // Allow certain file formats
   if (
@@ -63,13 +63,6 @@ if (!empty($_FILES["fileToUpload"]["full_path"])) {
       echo "Sorry, there was an error uploading your file.";
     }
   }
-
-
-
-
-
-
-
   // hadii khdamaaaa
   $sql = "UPDATE `produit` SET `nom` = :nom , `qte` = $qte, `prix` = $prix,`image` = '$image', `description` = '$des', `id_cat` = '$cat' WHERE `produit`.`id` = $id";
   // $sql = "INSERT INTO `produit` (`id`, `nom`, `qte`, `prix`, `id_cat`) VALUES (NULL, '$name', '$qte', '$prix', '$cat');";

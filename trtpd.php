@@ -30,10 +30,10 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-  echo "Sorry, your file is too large.";
-  $uploadOk = 0;
-}
+// if ($_FILES["fileToUpload"]["size"] > 500000) {
+//   echo "Sorry, your file is too large.";
+//   $uploadOk = 0;
+// }
 
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -62,16 +62,12 @@ $sql = "INSERT INTO `produit` (`id`, `nom`, `qte`, `prix`, `image`, `description
 $resultat = $connect->prepare($sql);
 $resultat->execute() or die("Erreur lors de l'execution de la requete: ".mysql_error());
 $_SESSION['ajouterpd'] = "<div class='alert alert-success' role='alert'>
-  A bien ete modifier</div>";
+  A bien ete inserer</div>";
 // echo "bien insere";
 // ******************************
 
 
 
-// echo "hadii khdamaaaach";
-//  $sql = "INSERT IGNORE INTO `produit` (`nom`, `qte`, `prix`, `id_cat`) VALUES ('?', '?', '?', '?')";
-//  $resultat = $connect->prepare($sql);
-//  $resultat->execute([$name,$qte,$prix,$cat]) or die("Erreur lors de l'execution de la requete: ".mysql_error());
-// ******************************
+
  header("Location: ./admin.php");
 ?>

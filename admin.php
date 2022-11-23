@@ -36,7 +36,7 @@ include 'config.php'; ?>
     
     <div class="backg cen">
         <!-- Barre de navigation -->
-        <!-- style="position: fixed; width:100%; z-index: 2;" -->
+        
         <nav class="navbar navbar-expand-lg bg-dark fixed-top" >
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,26 +54,10 @@ include 'config.php'; ?>
                             <a class="nav-link" href="admin.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Categorie
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Phone</a></li>
-                                <li><a class="dropdown-item" href="#">Console</a></li>
-                                <li><a class="dropdown-item" href="#">Laptop</a></li>
-                                <li><a class="dropdown-item" href="#">PC</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">All Categories</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                        </li>
+                        
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -139,7 +123,7 @@ include 'config.php'; ?>
                     <label for="validationDefault01" class="form-label">Title</label>
                     <input type="text" class="form-control" id="validationDefault01" value="" name="nom" required style="border: 1px solid;">
                 </div>
-                <div class="col-md-4 mt-5">
+                <div class="col-md-4 mb-5">
                     <label for="" class="form-label">IMAGE</label>
                     <input type="file" name="fileToUpload" class="form-control" id="fileToUpload" required>
                 </div>
@@ -272,8 +256,6 @@ include 'config.php'; ?>
                                 <div class="gaping text-start" style="display: flex; justify-content: space-between;">
                                     <?php echo "<a class='btn btn-outline-success' href='modifierpd.php?id=$id'>Edit</a>" ?>
                                     <?php echo "<a class='btn btn-outline-danger' href='deletepd.php?id=$id'>Delete</a>" ?>
-                                    <!-- <a href="#" class="btn btn-outline-success">Edit</a>
-                                <a href="#" class="btn btn-outline-danger">Delete</a> -->
                                 </div>
                             </div>
                         </div>
@@ -295,7 +277,8 @@ include 'config.php'; ?>
             for (let i = 2; i < disp.length; i++) {
                 disp[i].style.display = "none";
             }
-            document.getElementById("ajouterCat").style.display = "block";
+            disp[1].style.display = "block";
+            // document.getElementById("ajouterCat").style.display = "block";
         }
 
         function ajoutP() {
