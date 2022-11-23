@@ -23,11 +23,9 @@ $resultat->execute();
 		// echo "<script>
 		// 	alert('error')
 		// </script>";
-		$_SESSION['errorcnx'] = "<div class='alert alert-danger' role='alert'>
-		information incorrect</div>";
-		header("Location: ./login.php");
-		exit();
-		// echo 2;
+		// header("Location: ./login.php");
+		// exit();
+		echo 2;
 
 
 	}
