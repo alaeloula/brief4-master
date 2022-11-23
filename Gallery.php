@@ -87,13 +87,9 @@ function prod_temp($id, $nom, $desc, $qtty, $prix, $img)
                                 foreach ($row as $key) {
                                     $id = $key['id'];
                                 ?>
-                                    <!-- echo "<li value=" . $key['id'] . ">" . $key['nom'] . "</li>"; -->
                                     <li><a class="dropdown-item" href="filtre.php?id=<?= $id ?>"><?= $key['nom'] ?></a></li>
                                 <?php } ?>
-                                <!-- <li><a class="dropdown-item" href="#">Phone</a></li>
-                                <li><a class="dropdown-item" href="#">Console</a></li>
-                                <li><a class="dropdown-item" href="#">Laptop</a></li>
-                                <li><a class="dropdown-item" href="#">PC</a></li>-->
+                                
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

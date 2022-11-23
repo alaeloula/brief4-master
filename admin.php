@@ -99,13 +99,15 @@ include 'config.php'; ?>
     <?php 
     if(isset($_SESSION['ajouterpd'])){
         echo $_SESSION['ajouterpd'];
-        $_SESSION['ajouterpd']="";
+        // $_SESSION['ajouterpd']="";
+        unset($_SESSION['ajouterpd']);
     }
     ?>
     <?php 
     if(isset($_SESSION['ajoutercat'])){
         echo $_SESSION['ajoutercat'];
-        $_SESSION['ajoutercat']="";
+        // $_SESSION['ajoutercat']="";
+        unset($_SESSION['ajoutercat']);
     }
     ?>
         <div class="Buttons">
